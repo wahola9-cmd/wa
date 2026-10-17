@@ -1,0 +1,1245 @@
+<!DOCTYPE html>
+<html lang="es" class="dark scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RUT ORIANA PALOMINO® — Diseño con otra frecuencia</title>
+    <meta name="description" content="Portafolio creativo de Rut Oriana Palomino. Dirección de arte, branding y campañas publicitarias.">
+
+    <link rel="icon" type="image/png" href="https://res.cloudinary.com/mtjqlf2y/image/upload/w_128,h_128,c_fill,q_auto,f_auto/v1791537559/oriana-ilustracion.png">
+
+    <meta property="og:title" content="RUT ORIANA PALOMINO® — Diseño con otra frecuencia">
+    <meta property="og:description" content="Portafolio creativo: dirección de arte, branding y campañas.">
+    <meta property="og:image" content="https://res.cloudinary.com/mtjqlf2y/image/upload/w_1200,h_630,c_fill,q_auto,f_auto/v1791537559/oriana-ilustracion.png">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://res.cloudinary.com/mtjqlf2y/image/upload/w_1200,h_630,c_fill,q_auto,f_auto/v1791537559/oriana-ilustracion.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script type="importmap">
+      {
+        "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.162.0/build/three.module.js",
+            "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.162.0/examples/jsm/"
+        }
+      }
+    </script>
+    <style>
+        :root {
+            --violet: #a855f7;
+            --violet-deep: #7c3aed;
+            --violet-neon: #b026ff;
+            --lavender: #c4b5fd;
+            --carbon: #0a0610;
+            --carbon-2: #14101c;
+            --card-dark: rgba(15, 10, 22, 0.82);
+            --text-main: #ffffff;
+            --text-muted: #b8a8c8;
+            --accent: #b026ff;
+            --ig-bg: #000000;
+            --ig-border: #262626;
+            --ig-text: #f5f5f5;
+            --ig-text-muted: #a8a8a8;
+            --ig-blue: #0095f6;
+        }
+
+        * { box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; scroll-padding-top: 90px; overflow-anchor: none; }
+        body {
+            background-color: var(--carbon);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            overflow-anchor: none;
+        }
+
+        .display { font-family: 'Anton', sans-serif; letter-spacing: -0.02em; text-transform: uppercase; line-height: 0.92; }
+        .mono { font-family: 'Space Mono', monospace; letter-spacing: 0.05em; }
+
+        section { scroll-margin-top: 90px; }
+
+        /* TEXTURA */
+        .grain {
+            position: fixed; inset: 0; z-index: 2; pointer-events: none;
+            opacity: 0.06; mix-blend-mode: overlay;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+        }
+        .scanlines {
+            position: fixed; inset: 0; z-index: 2; pointer-events: none;
+            opacity: 0.05;
+            background: repeating-linear-gradient(0deg, rgba(176,38,255,0.4) 0px, rgba(176,38,255,0.4) 1px, transparent 1px, transparent 3px);
+        }
+
+        /* NAV */
+        .player-nav {
+            background: rgba(10, 6, 16, 0.9);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(176, 38, 255, 0.2);
+        }
+        .rec-dot {
+            width: 8px; height: 8px; border-radius: 50%;
+            background: var(--violet-neon);
+            box-shadow: 0 0 10px var(--violet-neon);
+            animation: rec-pulse 1.4s ease-in-out infinite;
+        }
+        @keyframes rec-pulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(0.85); } }
+        .nav-link {
+            position: relative;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-muted);
+            transition: color 0.25s ease;
+        }
+        .nav-link::before { content: attr(data-num); color: var(--violet-neon); margin-right: 6px; font-size: 0.65rem; opacity: 0.6; }
+        .nav-link::after { content: ''; position: absolute; left: 0; bottom: -4px; height: 1px; width: 0; background: var(--violet-neon); transition: width 0.3s ease; }
+        .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+        .nav-link.active { color: #fff; }
+
+        /* HAMBURGUESA */
+        .hamburger { display: none; width: 40px; height: 40px; align-items: center; justify-content: center; border: 1px solid rgba(176, 38, 255, 0.3); background: transparent; color: var(--violet-neon); cursor: pointer; }
+        .mobile-menu {
+            position: fixed; inset: 0; background: rgba(5, 2, 12, 0.98);
+            backdrop-filter: blur(20px); z-index: 99;
+            display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1.5rem;
+            opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+        }
+        .mobile-menu.open { opacity: 1; pointer-events: auto; }
+        .mobile-menu a { font-family: 'Anton', sans-serif; font-size: 1.8rem; text-transform: uppercase; color: var(--text-main); transition: color 0.25s ease; }
+        .mobile-menu a:hover { color: var(--violet-neon); }
+        .mobile-menu-close { position: absolute; top: 1.5rem; right: 1.5rem; width: 44px; height: 44px; background: transparent; border: 1px solid rgba(176, 38, 255, 0.4); color: var(--violet-neon); font-size: 1.2rem; cursor: pointer; }
+        @media (max-width: 1279px) { .hamburger { display: flex; } }
+
+        /* CARDS */
+        .editorial-card {
+            background: var(--card-dark); border: 1px solid rgba(176, 38, 255, 0.15);
+            backdrop-filter: blur(20px); transition: transform 0.45s cubic-bezier(.2,.9,.3,1.2), border-color 0.4s ease, box-shadow 0.4s ease;
+        }
+        .editorial-card:hover { transform: translateY(-4px); border-color: rgba(176, 38, 255, 0.5); box-shadow: 0 20px 60px rgba(124, 58, 237, 0.3); }
+
+        /* BOTONES */
+        .btn-primary {
+            display: inline-flex; align-items: center; justify-content: center; gap: 0.6rem;
+            font-family: 'Space Mono', monospace; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700;
+            padding: 1rem 1.6rem; color: #fff; background: var(--violet-neon); border: none; cursor: pointer;
+            position: relative; overflow: hidden; transition: transform 0.25s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+        .btn-primary::after { content: '↗'; display: inline-block; transition: transform 0.3s ease; flex-shrink: 0; }
+        .btn-primary:hover { transform: translate(-3px, -3px); box-shadow: 6px 6px 0 var(--carbon-2), 0 0 30px rgba(176, 38, 255, 0.55); }
+        .btn-primary:hover::after { transform: translate(3px, -3px) rotate(15deg); }
+        .btn-outline {
+            display: inline-flex; align-items: center; justify-content: center;
+            font-family: 'Space Mono', monospace; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.12em; font-weight: 700;
+            padding: 1rem 2rem; color: var(--lavender); background: transparent; border: 1px solid rgba(176, 38, 255, 0.4); cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .btn-outline:hover { background: rgba(176, 38, 255, 0.12); border-color: var(--violet-neon); color: #fff; }
+
+        /* TABS */
+        .track-btn {
+            display: inline-flex; align-items: center; gap: 0.5rem;
+            font-family: 'Space Mono', monospace; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.06em;
+            padding: 0.6rem 1rem; border: 1px solid rgba(176, 38, 255, 0.25); background: transparent; color: var(--text-muted); cursor: pointer;
+            transition: all 0.25s ease;
+        }
+        .track-btn::before { content: attr(data-track); color: var(--violet-neon); font-weight: 700; opacity: 0.7; }
+        .track-btn:hover { background: rgba(176, 38, 255, 0.1); color: #fff; }
+        .track-btn.tab-active { background: var(--violet-neon); color: #000; border-color: var(--violet-neon); box-shadow: 0 0 20px rgba(176, 38, 255, 0.5); }
+        .track-btn.tab-active::before { color: #000; opacity: 1; }
+
+        /* VELO */
+        #bg-scrim { background: rgba(5, 2, 12, 0.6); backdrop-filter: blur(1.5px); -webkit-backdrop-filter: blur(1.5px); }
+
+        h1, h2, h3, h4 { text-shadow: 0 2px 14px rgba(0,0,0,0.7); }
+        p, li, a, span { text-shadow: 0 1px 5px rgba(0,0,0,0.4); }
+        header.player-nav, header.player-nav a, header.player-nav button { text-shadow: none; }
+
+        /* REVEAL */
+        .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.8s cubic-bezier(.2,.7,.3,1), transform 0.8s cubic-bezier(.2,.7,.3,1); }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+
+        #scroll-progress { position: fixed; top: 0; left: 0; height: 2px; width: 0%; background: var(--violet-neon); z-index: 100; box-shadow: 0 0 14px var(--violet-neon); transition: width 0.1s linear; }
+
+        /* CURSOR */
+        .cursor-dot, .cursor-ring { position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9999; border-radius: 50%; transform: translate(-50%, -50%); will-change: transform; }
+        .cursor-dot { width: 5px; height: 5px; background: var(--violet-neon); box-shadow: 0 0 12px var(--violet-neon); }
+        .cursor-ring { width: 36px; height: 36px; border: 1px solid rgba(176, 38, 255, 0.55); transition: width 0.25s ease, height 0.25s ease, border-color 0.25s ease, background 0.25s ease; }
+        .cursor-ring.hover { width: 60px; height: 60px; border-color: var(--violet-neon); background: rgba(176, 38, 255, 0.08); }
+        @media (max-width: 900px) { .cursor-dot, .cursor-ring { display: none; } }
+
+        /* TYPEWRITER */
+        .typewriter-wrap { display: inline-flex; align-items: baseline; gap: 4px; flex-wrap: wrap; min-height: 2.6rem; }
+        .typewriter-text { font-family: 'Space Mono', monospace; color: var(--lavender); font-size: clamp(0.9rem, 2vw, 1.35rem); font-weight: 400; }
+        .typewriter-cursor { display: inline-block; width: 2px; height: 1.2em; background: var(--violet-neon); animation: blink 0.9s steps(1) infinite; vertical-align: middle; margin-left: 2px; }
+        @keyframes blink { 50% { opacity: 0; } }
+
+        /* MARQUEE */
+        .marquee { overflow: hidden; border-top: 1px solid rgba(176, 38, 255, 0.2); border-bottom: 1px solid rgba(176, 38, 255, 0.2); background: rgba(10, 6, 16, 0.6); padding: 1rem 0; }
+        .marquee-track { display: flex; gap: 3rem; white-space: nowrap; animation: scroll-marquee 32s linear infinite; will-change: transform; }
+        .marquee-item { font-family: 'Anton', sans-serif; font-size: 1.6rem; text-transform: uppercase; color: var(--lavender); letter-spacing: 0.02em; opacity: 0.75; }
+        .marquee-item span { color: var(--violet-neon); }
+        @keyframes scroll-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+        /* TRACK CARDS */
+        .track-card { position: relative; padding: 1.5rem; background: var(--card-dark); border: 1px solid rgba(176, 38, 255, 0.15); backdrop-filter: blur(16px); transition: all 0.4s ease; }
+        .track-card:hover { border-color: rgba(176, 38, 255, 0.5); transform: translateX(4px); }
+        .track-num { font-family: 'Space Mono', monospace; font-size: 0.7rem; color: var(--violet-neon); margin-bottom: 0.6rem; letter-spacing: 0.1em; }
+        .track-title { font-family: 'Anton', sans-serif; font-size: 1.1rem; text-transform: uppercase; margin-bottom: 0.4rem; }
+        .track-desc { font-size: 0.78rem; color: var(--text-muted); line-height: 1.5; }
+        .track-bars { display: flex; gap: 3px; margin-top: 1rem; height: 14px; align-items: flex-end; }
+        .track-bars span { flex: 1; background: rgba(176, 38, 255, 0.15); transition: background 0.4s ease, height 0.4s ease; }
+        .track-bars span.on { background: var(--violet-neon); box-shadow: 0 0 8px rgba(176, 38, 255, 0.5); }
+
+        /* ALBUM CARDS */
+        .album-card { position: relative; background: var(--card-dark); border: 1px solid rgba(176, 38, 255, 0.15); overflow: hidden; cursor: pointer; transition: all 0.45s cubic-bezier(.2,.9,.3,1.2); }
+        .album-card:focus-visible { outline: 2px solid var(--violet-neon); outline-offset: 3px; }
+        .album-card:hover { border-color: var(--violet-neon); transform: translateY(-6px); box-shadow: 0 20px 60px rgba(124, 58, 237, 0.35); }
+        .album-cover {
+            aspect-ratio: 1/1;
+            position: relative;
+            overflow: hidden;
+            background: radial-gradient(circle at 50% 40%, #2a1050 0%, #1a0a2e 50%, #0f0520 100%);
+        }
+        .album-cover::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(176, 38, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(176, 38, 255, 0.05) 1px, transparent 1px);
+            background-size: 24px 24px;
+            z-index: 0;
+            opacity: 0.6;
+        }
+        .album-cover img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s cubic-bezier(.2,.9,.3,1.2); position: relative; z-index: 1; }
+        .album-card:hover .album-cover img { transform: scale(1.06); }
+        .album-cat { position: absolute; bottom: 0.6rem; right: 0.6rem; opacity: 0.5; transition: opacity 0.4s ease, transform 0.4s ease; color: #fff; z-index: 3; }
+        .album-card:hover .album-cat { opacity: 1; transform: rotate(-8deg) scale(1.15); }
+        .album-meta { padding: 1rem 1.2rem; border-top: 1px solid rgba(176, 38, 255, 0.15); }
+        .album-code { font-family: 'Space Mono', monospace; font-size: 0.62rem; color: var(--violet-neon); letter-spacing: 0.1em; margin-bottom: 0.4rem; }
+        .album-title { font-family: 'Anton', sans-serif; font-size: 1.1rem; text-transform: uppercase; }
+        .album-cat-name { font-size: 0.72rem; color: var(--text-muted); margin-top: 0.2rem; }
+
+        /* TAG */
+        .folder-tag {
+            position: absolute;
+            top: 0.75rem;
+            left: 0.75rem;
+            background: var(--violet-neon);
+            color: #000;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.55rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            padding: 0.35rem 0.7rem;
+            z-index: 4;
+            max-width: 65%;
+            line-height: 1.2;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* LOGO FILTRO */
+        .logo-cover {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 18%;
+            z-index: 2;
+        }
+        .brand-logo {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: grayscale(1) brightness(1.15) sepia(1) hue-rotate(240deg) saturate(4.5) contrast(1.05);
+            opacity: 0.9;
+            transition: filter 0.5s ease, opacity 0.5s ease, transform 0.5s ease;
+        }
+        .album-card:hover .brand-logo {
+            filter: none;
+            opacity: 1;
+            transform: scale(1.05);
+        }
+
+        /* LISTÓN estrella */
+        .award-ribbon {
+            position: absolute;
+            top: 0;
+            right: 0;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 0.4rem 0.7rem 0.4rem 0.9rem;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.55rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #fff;
+            background: #e91e63;
+            z-index: 4;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+            border-bottom-left-radius: 0.6rem;
+            max-width: 90%;
+            line-height: 1.2;
+        }
+        .award-ribbon svg { flex-shrink: 0; filter: drop-shadow(0 1px 1px rgba(0,0,0,0.3)); }
+        .award-ribbon span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+        /* MODAL */
+        .modal-overlay { position: fixed; inset: 0; z-index: 200; background: rgba(0,0,0,0.85); backdrop-filter: blur(10px); display: flex; align-items: center; justify-content: center; padding: 1.5rem; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
+        .modal-overlay.open { opacity: 1; pointer-events: auto; }
+        .modal-box { background: var(--card-dark); border: 1px solid rgba(176, 38, 255, 0.35); max-width: 900px; width: 100%; padding: 2.5rem; transform: scale(0.94); transition: transform 0.35s cubic-bezier(.2,.9,.3,1.2); position: relative; max-height: 90vh; overflow-y: auto; }
+        .modal-overlay.open .modal-box { transform: scale(1); }
+        .modal-close { position: absolute; top: 1rem; right: 1rem; width: 36px; height: 36px; border-radius: 50%; background: rgba(176, 38, 255, 0.15); border: 1px solid rgba(176, 38, 255, 0.3); color: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.25s ease; z-index: 5; }
+        .modal-close:hover { background: var(--violet-neon); color: #000; }
+
+        /* CUENTAS */
+        .account-block { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px dashed rgba(176, 38, 255, 0.25); }
+        .account-block:first-of-type { border-top: none; padding-top: 0; margin-top: 1rem; }
+        .account-title { display: flex; align-items: baseline; flex-wrap: wrap; gap: 0.6rem; margin-bottom: 1.5rem; }
+        .account-num { font-family: 'Space Mono', monospace; font-size: 0.65rem; font-weight: 700; color: #000; background: var(--violet-neon); padding: 0.2rem 0.5rem; letter-spacing: 0.08em; }
+        .account-name { font-family: 'Anton', sans-serif; font-size: 1.05rem; text-transform: uppercase; color: var(--text-main); }
+        .account-sub { font-family: 'Space Mono', monospace; font-size: 0.6rem; color: var(--text-muted); letter-spacing: 0.08em; text-transform: uppercase; }
+
+        /* PROYECTOS INDIVIDUALES */
+        .single-pieces { display: flex; flex-direction: column; gap: 1.5rem; margin-bottom: 1.5rem; }
+        .single-piece-block { display: flex; flex-direction: column; gap: 0.5rem; }
+        .single-piece-label { font-size: 0.62rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--violet-neon); }
+        .single-piece-frame {
+            position: relative;
+            width: 100%;
+            background: rgba(30, 18, 45, 0.85);
+            border: 1px solid rgba(176, 38, 255, 0.3);
+            border-radius: 1rem;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.35s ease;
+            max-height: 70vh;
+        }
+        .single-piece-frame:hover { border-color: var(--violet-neon); box-shadow: 0 12px 40px rgba(176, 38, 255, 0.35); transform: translateY(-3px); }
+        .single-piece-frame img,
+        .single-piece-frame iframe,
+        .single-piece-frame video { width: 100%; height: 100%; display: block; border: none; object-fit: cover; }
+        .single-piece-frame iframe { aspect-ratio: 16/9; }
+        .single-piece-frame.is-board { background: #0f0a18; }
+        .single-piece-frame.is-board img { object-fit: contain; }
+        .single-piece-empty { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 0.5rem; color: var(--violet-neon); text-align: center; padding: 1.5rem; }
+        .single-piece-empty-icon { font-size: 1.8rem; opacity: 0.5; }
+        .single-piece-empty-label { font-size: 0.6rem; letter-spacing: 0.15em; opacity: 0.75; text-transform: uppercase; }
+        .modal-award { display: inline-flex; align-items: center; gap: 6px; align-self: flex-start; padding: 0.45rem 0.9rem; font-family: 'Space Mono', monospace; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #fff; background: #e91e63; border-radius: 999px; margin-bottom: 0.75rem; box-shadow: 0 0 18px rgba(233, 30, 99, 0.5); }
+
+        /* ============================================
+           MOCKUPS ANDROID (9:16)
+           ============================================ */
+        .mockup-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.75rem; align-items: start; margin-bottom: 1rem; }
+
+        .mockup {
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.5s cubic-bezier(.2,.9,.3,1.2);
+            filter: drop-shadow(0 14px 30px rgba(0, 0, 0, 0.7));
+            max-width: 220px;
+            width: 100%;
+            margin: 0 auto;
+        }
+        .mockup:hover {
+            transform: translateY(-10px) scale(1.02);
+            filter: drop-shadow(0 24px 50px rgba(176, 38, 255, 0.5));
+        }
+        .mockup::after {
+            content: '';
+            position: absolute;
+            left: 50%; bottom: -16px;
+            transform: translateX(-50%);
+            width: 0; height: 1px;
+            background: var(--violet-neon);
+            transition: width 0.4s ease;
+            box-shadow: 0 0 8px var(--violet-neon);
+        }
+        .mockup:hover::after { width: 70%; }
+
+        /* Marco Android: esquinas redondeadas suaves + cámara perforada */
+        .mockup-inner {
+            position: relative;
+            background: #0a0a0a;
+            border-radius: 1.4rem;
+            padding: 0.5rem 0.45rem;
+            border: 2px solid #1a1a1a;
+            box-shadow:
+                inset 0 0 0 2px #000,
+                inset 0 0 0 3px rgba(255, 255, 255, 0.08),
+                0 0 0 1px rgba(0, 0, 0, 0.9),
+                0 10px 30px rgba(0, 0, 0, 0.7);
+        }
+        /* Cámara perforada tipo Android */
+        .mockup-inner::before {
+            content: '';
+            position: absolute;
+            top: 0.28rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 7px;
+            height: 7px;
+            background: #000;
+            border-radius: 50%;
+            z-index: 8;
+            box-shadow: inset 0 0 2px rgba(255,255,255,0.4), 0 0 0 1px rgba(255,255,255,0.15);
+        }
+
+        /* Pantalla Android: 9:16 exacto */
+        .mockup-screen {
+            position: relative;
+            aspect-ratio: 9/16;
+            border-radius: 1rem;
+            overflow: hidden;
+            background: var(--ig-bg);
+            display: flex;
+            flex-direction: column;
+            color: var(--ig-text);
+        }
+
+        /* POST IG */
+        .ig-post { display: flex; flex-direction: column; height: 100%; }
+        .ig-header {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.4rem 0.55rem;
+            padding-top: 0.85rem;
+            border-bottom: 1px solid var(--ig-border);
+            flex-shrink: 0;
+        }
+        .ig-avatar { width: 22px; height: 22px; border-radius: 50%; background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); display: flex; align-items: center; justify-content: center; padding: 1.5px; flex-shrink: 0; }
+        .ig-avatar-inner { width: 100%; height: 100%; border-radius: 50%; background: #000; display: flex; align-items: center; justify-content: center; font-size: 8px; font-weight: 700; color: #fff; }
+        .ig-user { flex: 1; min-width: 0; display: flex; align-items: center; gap: 3px; }
+        .ig-username { font-size: 10px; font-weight: 600; color: var(--ig-text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .ig-verified { width: 10px; height: 10px; color: var(--ig-blue); flex-shrink: 0; }
+        .ig-dots { color: var(--ig-text); font-size: 12px; line-height: 1; padding: 0 3px; flex-shrink: 0; }
+        .ig-image { flex: 1; background: #000; display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative; }
+        .ig-image img { width: 100%; height: 100%; object-fit: contain; display: block; }
+        .ig-empty { display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 0.4rem; color: var(--violet-neon); text-align: center; padding: 1rem; width: 100%; height: 100%; background: linear-gradient(135deg, #1a0a2e, #2a0a3e); }
+        .ig-empty-icon { font-size: 1.3rem; opacity: 0.5; }
+        .ig-empty-label { font-family: 'Space Mono', monospace; font-size: 0.45rem; letter-spacing: 0.08em; opacity: 0.7; text-transform: uppercase; }
+        .ig-actions { display: flex; align-items: center; justify-content: space-between; padding: 0.45rem 0.55rem 0.3rem; flex-shrink: 0; color: var(--ig-text); }
+        .ig-actions-left { display: flex; align-items: center; gap: 0.6rem; }
+        .ig-icon { width: 15px; height: 15px; color: var(--ig-text); }
+        .ig-meta { padding: 0 0.55rem 0.45rem; flex-shrink: 0; font-size: 9px; line-height: 1.35; color: var(--ig-text); }
+        .ig-likes { font-weight: 600; margin-bottom: 1px; }
+        .ig-caption { color: var(--ig-text); }
+        .ig-caption strong { font-weight: 600; }
+        .ig-comments { color: var(--ig-text-muted); margin-top: 1px; }
+        .ig-time { color: var(--ig-text-muted); font-size: 8px; text-transform: uppercase; letter-spacing: 0.05em; margin-top: 2px; }
+
+        /* STORY */
+        .ig-story { position: relative; height: 100%; width: 100%; }
+        .ig-story-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; display: block; z-index: 1; background: #000; }
+        .ig-story-bg-empty { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; flex-direction: column; gap: 0.4rem; background: linear-gradient(135deg, #1a0a2e, #2a0a3e); color: var(--violet-neon); text-align: center; padding: 1rem; z-index: 1; }
+        .ig-story-bg-empty .ig-empty-icon { font-size: 1.3rem; opacity: 0.5; }
+        .ig-story-bg-empty .ig-empty-label { font-family: 'Space Mono', monospace; font-size: 0.45rem; letter-spacing: 0.08em; opacity: 0.7; text-transform: uppercase; }
+        .ig-story-progress { position: absolute; top: 0.9rem; left: 0.4rem; right: 0.4rem; height: 2px; background: rgba(255, 255, 255, 0.35); border-radius: 2px; z-index: 3; overflow: hidden; }
+        .ig-story-progress-fill { height: 100%; width: 100%; background: #fff; border-radius: 2px; animation: story-progress 6s linear infinite; }
+        @keyframes story-progress { 0% { width: 0%; } 100% { width: 100%; } }
+        .ig-story-header { position: absolute; top: 1.3rem; left: 0.5rem; right: 0.5rem; display: flex; align-items: center; gap: 0.4rem; z-index: 3; color: #fff; }
+        .ig-story-avatar { width: 22px; height: 22px; border-radius: 50%; background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); display: flex; align-items: center; justify-content: center; padding: 1.5px; flex-shrink: 0; border: 1px solid rgba(255,255,255,0.6); }
+        .ig-story-avatar-inner { width: 100%; height: 100%; border-radius: 50%; background: #000; display: flex; align-items: center; justify-content: center; font-size: 8px; font-weight: 700; color: #fff; }
+        .ig-story-username { font-size: 10px; font-weight: 600; color: #fff; text-shadow: 0 1px 3px rgba(0,0,0,0.8); }
+        .ig-story-time { font-size: 9px; color: rgba(255,255,255,0.8); text-shadow: 0 1px 3px rgba(0,0,0,0.8); }
+        .ig-story-close { margin-left: auto; color: #fff; font-size: 12px; line-height: 1; text-shadow: 0 1px 3px rgba(0,0,0,0.8); }
+        .ig-story-footer { position: absolute; bottom: 0.9rem; left: 0.5rem; right: 0.5rem; z-index: 3; display: flex; align-items: center; gap: 0.4rem; }
+        .ig-story-input { flex: 1; height: 26px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.7); background: transparent; color: rgba(255,255,255,0.9); font-size: 9px; padding: 0 0.6rem; display: flex; align-items: center; font-family: 'Inter', sans-serif; }
+        .ig-story-icons { display: flex; gap: 0.5rem; align-items: center; color: #fff; }
+        .ig-story-icons svg { width: 16px; height: 16px; }
+
+        /* Posiciones en el grid */
+        .mockup-grid .mockup-left { transform: rotate(-3deg) translateY(8px) scale(0.95); }
+        .mockup-grid .mockup-left:hover { transform: rotate(-3deg) translateY(-6px) scale(0.98); }
+        .mockup-grid .mockup-center { transform: scale(1.05); z-index: 2; }
+        .mockup-grid .mockup-center:hover { transform: translateY(-10px) scale(1.08); }
+        .mockup-grid .mockup-right { transform: rotate(3deg) translateY(8px) scale(0.95); }
+        .mockup-grid .mockup-right:hover { transform: rotate(3deg) translateY(-6px) scale(0.98); }
+
+        /* ============================================
+           ILUSTRACIONES — Masonry natural (columns)
+           ============================================ */
+        .subproject-grid {
+            column-count: 3;
+            column-gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        .subproject {
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            border-radius: 0.75rem;
+            background: #0f0a18;
+            border: 1px solid rgba(176, 38, 255, 0.2);
+            transition: transform 0.4s cubic-bezier(.2,.9,.3,1.2), box-shadow 0.4s ease, border-color 0.3s ease;
+            display: block;
+            width: 100%;
+            margin: 0 0 1rem 0;
+            break-inside: avoid;
+            -webkit-column-break-inside: avoid;
+            page-break-inside: avoid;
+        }
+        .subproject:hover {
+            transform: translateY(-4px);
+            border-color: var(--violet-neon);
+            box-shadow: 0 20px 50px rgba(176, 38, 255, 0.35);
+            z-index: 2;
+        }
+        .subproject img {
+            display: block;
+            width: 100%;
+            height: auto;
+            transition: transform 0.6s cubic-bezier(.2,.9,.3,1.2), filter 0.4s ease;
+        }
+        .subproject:hover img {
+            transform: scale(1.03);
+            filter: brightness(1.05) saturate(1.1);
+        }
+        .subproject-label {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            padding: 1.4rem 0.8rem 0.7rem;
+            background: linear-gradient(to top, rgba(10, 6, 16, 0.95), rgba(10, 6, 16, 0.4) 60%, transparent);
+            color: #fff;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.55rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            text-align: left;
+            z-index: 2;
+            opacity: 0;
+            transform: translateY(8px);
+            transition: opacity 0.35s ease, transform 0.35s ease;
+            pointer-events: none;
+        }
+        .subproject:hover .subproject-label {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .subproject::after {
+            content: '';
+            position: absolute;
+            inset: 8px;
+            border: 1px solid rgba(176, 38, 255, 0.6);
+            border-radius: 0.5rem;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.35s ease;
+            z-index: 3;
+        }
+        .subproject:hover::after { opacity: 1; }
+        .subproject-empty-icon {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 1.6rem;
+            opacity: 0.4;
+            color: var(--violet-neon);
+        }
+        @media (max-width: 900px) {
+            .subproject-grid { column-count: 2; column-gap: 0.75rem; }
+            .subproject { margin-bottom: 0.75rem; }
+        }
+        @media (max-width: 500px) {
+            .subproject-grid { column-count: 1; }
+        }
+
+        /* LIGHTBOX */
+        .lightbox { position: fixed; inset: 0; z-index: 400; background: rgba(0, 0, 0, 0.95); backdrop-filter: blur(12px); display: flex; align-items: center; justify-content: center; padding: 2rem; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
+        .lightbox.open { opacity: 1; pointer-events: auto; }
+        .lightbox-content { max-width: 90vw; max-height: 90vh; display: flex; flex-direction: column; align-items: center; transform: scale(0.94); transition: transform 0.35s cubic-bezier(.2,.9,.3,1.2); }
+        .lightbox.open .lightbox-content { transform: scale(1); }
+        .lightbox-content img { max-width: 100%; max-height: 80vh; object-fit: contain; border: 1px solid rgba(176, 38, 255, 0.3); box-shadow: 0 0 60px rgba(176, 38, 255, 0.4); }
+        .lightbox-close { position: absolute; top: 1.5rem; right: 1.5rem; width: 44px; height: 44px; border-radius: 50%; background: rgba(176, 38, 255, 0.15); border: 1px solid rgba(176, 38, 255, 0.4); color: var(--violet-neon); font-size: 1.2rem; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.25s ease; }
+        .lightbox-close:hover { background: var(--violet-neon); color: #000; }
+
+        /* BACK TO TOP */
+        #backToTop { position: fixed; bottom: 2rem; right: 2rem; z-index: 90; width: 48px; height: 48px; background: var(--violet-neon); color: #000; border: none; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 0 24px rgba(176, 38, 255, 0.5); opacity: 0; pointer-events: none; transform: translateY(20px); transition: all 0.35s ease; font-family: 'Space Mono', monospace; font-weight: 700; font-size: 1.2rem; }
+        #backToTop.show { opacity: 1; pointer-events: auto; transform: translateY(0); }
+        #backToTop:hover { transform: translateY(-4px); }
+
+        /* GATO */
+        .cat-mascot {
+            filter: drop-shadow(0 0 20px rgba(176, 38, 255, 0.5));
+            animation: cat-float 5s ease-in-out infinite;
+            cursor: pointer;
+            transition: transform 0.4s ease;
+            transform-origin: center;
+        }
+        .cat-mascot:hover { transform: scale(1.08) rotate(-2deg); }
+        .cat-mascot.petted { animation: cat-petted 0.6s cubic-bezier(.2,.9,.3,1.6) 1; }
+        @keyframes cat-float {
+            0%, 100% { transform: translateY(0) rotate(-2deg); }
+            50% { transform: translateY(-10px) rotate(2deg); }
+        }
+        @keyframes cat-petted {
+            0% { transform: scale(1) rotate(0deg); }
+            25% { transform: scale(1.15) rotate(-8deg); }
+            50% { transform: scale(1.2) rotate(6deg); }
+            75% { transform: scale(1.1) rotate(-4deg); }
+            100% { transform: scale(1) rotate(0deg); }
+        }
+        .cat-blink { animation: cat-blink 4s ease-in-out infinite; transform-origin: center; }
+        @keyframes cat-blink {
+            0%, 92%, 100% { transform: scaleY(1); }
+            95% { transform: scaleY(0.1); }
+        }
+
+        /* Corazones y meow */
+        .cat-heart { position: fixed; pointer-events: none; z-index: 999; font-size: 1.5rem; animation: heart-pop 1.4s ease-out forwards; will-change: transform, opacity; }
+        @keyframes heart-pop {
+            0% { transform: translate(-50%, -50%) scale(0.4); opacity: 0; }
+            20% { transform: translate(-50%, -60%) scale(1.1); opacity: 1; }
+            100% { transform: translate(-50%, -180%) scale(0.6); opacity: 0; }
+        }
+        .cat-meow {
+            position: fixed; z-index: 999; background: #1a0a2e; border: 1px solid var(--violet-neon);
+            color: var(--violet-neon); font-family: 'Space Mono', monospace; font-size: 0.7rem;
+            padding: 0.4rem 0.7rem; border-radius: 999px; pointer-events: none;
+            transform: translate(-50%, -50%); animation: meow-pop 1.6s cubic-bezier(.2,.9,.3,1.4) forwards;
+            box-shadow: 0 0 18px rgba(176, 38, 255, 0.6); letter-spacing: 0.05em; font-weight: 700;
+        }
+        @keyframes meow-pop {
+            0% { opacity: 0; transform: translate(-50%, -20%) scale(0.6); }
+            20% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+            80% { opacity: 1; transform: translate(-50%, -80%) scale(1); }
+            100% { opacity: 0; transform: translate(-50%, -120%) scale(0.9); }
+        }
+
+        /* EASTER EGG */
+        .cat-egg { position: fixed; left: 50%; top: 50%; transform: translate(-50%, -50%) scale(0.6); background: var(--card-dark); border: 1px solid var(--violet-neon); padding: 2rem 2.5rem; z-index: 500; opacity: 0; pointer-events: none; transition: all 0.4s cubic-bezier(.2,.9,.3,1.2); text-align: center; box-shadow: 0 0 40px rgba(176, 38, 255, 0.6); }
+        .cat-egg.show { opacity: 1; pointer-events: auto; transform: translate(-50%, -50%) scale(1); }
+        .cat-egg p:first-of-type { font-family: 'Anton', sans-serif; font-size: 1.4rem; text-transform: uppercase; color: var(--violet-neon); margin-bottom: 0.6rem; }
+        .cat-egg p:last-of-type { font-family: 'Space Mono', monospace; font-size: 0.75rem; color: var(--text-muted); }
+
+        /* EXIT TOAST */
+        .exit-toast {
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translate(-50%, 100px);
+            z-index: 500;
+            background: #1a0a2e;
+            border: 1px solid var(--violet-neon);
+            border-radius: 999px;
+            padding: 0.75rem 1.4rem 0.75rem 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+            box-shadow: 0 10px 40px rgba(176, 38, 255, 0.5), 0 0 30px rgba(176, 38, 255, 0.3);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease, transform 0.5s cubic-bezier(.2,.9,.3,1.2);
+            max-width: 92vw;
+        }
+        .exit-toast.show {
+            opacity: 1;
+            transform: translate(-50%, 0);
+            pointer-events: auto;
+        }
+        .exit-toast-icon {
+            width: 32px; height: 32px; border-radius: 50%;
+            background: var(--violet-neon);
+            display: flex; align-items: center; justify-content: center;
+            color: #000; font-size: 1rem;
+            flex-shrink: 0;
+            box-shadow: 0 0 14px rgba(176, 38, 255, 0.8);
+            animation: exit-pulse 1.6s ease-in-out infinite;
+        }
+        @keyframes exit-pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.08); } }
+        .exit-toast-text {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.72rem;
+            color: #fff;
+            letter-spacing: 0.03em;
+            line-height: 1.3;
+            text-shadow: none;
+        }
+        .exit-toast-text strong { color: var(--violet-neon); font-weight: 700; }
+        .exit-toast-close {
+            background: transparent; border: none; color: var(--text-muted);
+            font-size: 0.9rem; cursor: pointer; padding: 0 0.2rem;
+            margin-left: 0.2rem; line-height: 1; transition: color 0.2s ease;
+            flex-shrink: 0;
+        }
+        .exit-toast-close:hover { color: #fff; }
+        @media (max-width: 480px) {
+            .exit-toast { padding: 0.6rem 1rem 0.6rem 0.8rem; gap: 0.5rem; bottom: 1rem; }
+            .exit-toast-icon { width: 26px; height: 26px; font-size: 0.85rem; }
+            .exit-toast-text { font-size: 0.62rem; }
+        }
+
+        /* STICKERS */
+        .sticker { position: absolute; font-family: 'Space Mono', monospace; font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--violet-neon); border: 1px solid rgba(176, 38, 255, 0.4); padding: 0.3rem 0.6rem; background: rgba(10, 6, 16, 0.85); transform: rotate(-6deg); pointer-events: none; z-index: 3; }
+        .sticker-2 { transform: rotate(4deg); }
+
+        /* WASHI */
+        .washi { position: absolute; top: -0.8rem; left: 50%; transform: translateX(-50%) rotate(-3deg); padding: 0.35rem 2rem; background: rgba(176, 38, 255, 0.85); color: #000; font-family: 'Space Mono', monospace; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.25em; z-index: 4; box-shadow: 0 4px 12px rgba(176, 38, 255, 0.4); }
+
+        /* TIMELINE */
+        .timeline-item { position: relative; padding-left: 2rem; padding-bottom: 2rem; border-left: 1px solid rgba(176, 38, 255, 0.3); }
+        .timeline-item::before { content: ''; position: absolute; left: -5px; top: 4px; width: 9px; height: 9px; background: var(--violet-neon); border-radius: 50%; box-shadow: 0 0 12px var(--violet-neon); }
+        .timeline-year { font-family: 'Space Mono', monospace; font-size: 0.7rem; color: var(--violet-neon); letter-spacing: 0.1em; margin-bottom: 0.4rem; }
+
+        /* PERFIL */
+        .profile-swap { position: relative; cursor: pointer; }
+        .profile-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: opacity 0.6s ease, transform 0.8s cubic-bezier(.2,.9,.3,1.2); }
+        .profile-img-base { opacity: 1; transform: scale(1); z-index: 1; }
+        .profile-img-hover { opacity: 0; transform: scale(1.05); z-index: 2; filter: saturate(1.05) contrast(1.05); }
+        .profile-swap:hover .profile-img-base { opacity: 0; transform: scale(1.03); }
+        .profile-swap:hover .profile-img-hover { opacity: 1; transform: scale(1); }
+        .profile-hint { position: absolute; bottom: 1rem; left: 1rem; z-index: 3; padding: 0.5rem 0.8rem; background: rgba(10, 6, 16, 0.85); border: 1px solid rgba(176, 38, 255, 0.5); color: var(--violet-neon); font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; opacity: 0; transform: translateY(8px); transition: opacity 0.4s ease, transform 0.4s ease; pointer-events: none; }
+        .profile-swap:hover .profile-hint { opacity: 1; transform: translateY(0); }
+        @media (hover: none) { .profile-hint { display: none; } }
+
+        /* SCROLL HINT */
+        .scroll-hint {
+            position: absolute;
+            bottom: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 20;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            pointer-events: none;
+            opacity: 0.85;
+            animation: bounce-hint 2.4s ease-in-out infinite;
+        }
+        .scroll-hint-text { font-family: 'Space Mono', monospace; font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--violet-neon); text-shadow: 0 0 12px rgba(176, 38, 255, 0.8); }
+        .scroll-hint-arrow { width: 20px; height: 20px; border-right: 2px solid var(--violet-neon); border-bottom: 2px solid var(--violet-neon); transform: rotate(45deg); filter: drop-shadow(0 0 6px rgba(176, 38, 255, 0.8)); }
+        @keyframes bounce-hint { 0%, 100% { transform: translate(-50%, 0); } 50% { transform: translate(-50%, 8px); } }
+        @media (max-width: 768px) {
+            .scroll-hint { bottom: 1rem; }
+            .scroll-hint-text { font-size: 0.55rem; letter-spacing: 0.25em; }
+        }
+
+        /* LANG */
+        .lang-btn { font-family: 'Space Mono', monospace; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.08em; padding: 0.35rem 0.7rem; cursor: pointer; border: none; background: transparent; color: var(--text-muted); transition: all 0.25s ease; }
+        .lang-btn.active { background: var(--violet-neon); color: #000; }
+        .lang-btn:not(.active):hover { color: #fff; }
+
+        /* Ocultar badge Netlify */
+        .netlify-badge, div[data-netlify-ui], iframe[title="Netlify Drawer"] { display: none !important; }
+
+        /* REPRODUCTOR MÓVIL */
+        .mobile-player { display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 80; background: rgba(10, 6, 16, 0.95); backdrop-filter: blur(20px); border-top: 1px solid rgba(176, 38, 255, 0.25); padding: 0.6rem 1rem; }
+        .mobile-player .player-inner { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; }
+        .player-btn { width: 38px; height: 38px; border-radius: 50%; background: rgba(176, 38, 255, 0.15); border: 1px solid rgba(176, 38, 255, 0.4); color: var(--violet-neon); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.25s ease; }
+        .player-btn:active { background: var(--violet-neon); color: #000; }
+        .player-play { width: 44px; height: 44px; background: var(--violet-neon); color: #000; border: none; }
+        .player-info { flex: 1; min-width: 0; }
+        .player-title { font-family: 'Space Mono', monospace; font-size: 0.68rem; color: var(--text-main); text-transform: uppercase; letter-spacing: 0.1em; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+        .player-sub { font-family: 'Space Mono', monospace; font-size: 0.55rem; color: var(--violet-neon); letter-spacing: 0.15em; }
+        @media (max-width: 768px) { .mobile-player { display: block; } body { padding-bottom: 70px; } }
+
+        /* RESPONSIVE */
+        @media (max-width: 1024px) { .grain, .scanlines { display: none; } }
+
+        @media (max-width: 900px) {
+            .mockup-grid { grid-template-columns: 1fr; gap: 2.5rem; max-width: 220px; margin: 0 auto 1rem; }
+            .mockup-grid .mockup-left, .mockup-grid .mockup-center, .mockup-grid .mockup-right { transform: none; }
+            .mockup-grid .mockup-left:hover, .mockup-grid .mockup-center:hover, .mockup-grid .mockup-right:hover { transform: translateY(-6px) scale(1.02); }
+        }
+
+        @media (max-width: 768px) {
+            header.player-nav .container { padding-left: 1rem; padding-right: 1rem; gap: 0.75rem; }
+            header.player-nav .display { font-size: 1rem; }
+            header.player-nav .rec-dot { width: 6px; height: 6px; }
+
+            #home { padding-top: 90px; padding-bottom: 80px; min-height: auto; position: relative; }
+            #home .grid { gap: 1rem; }
+            #home .grid > div:first-child { order: 1; position: relative; z-index: 2; }
+            #home .grid > div:last-child { order: 2; position: absolute; top: 80px; right: 0.5rem; margin: 0; width: auto; z-index: 3; }
+            #home .container { position: relative; padding-left: 1.25rem; padding-right: 1.25rem; }
+
+            .cat-mascot { width: 78px !important; height: auto; }
+            #home .grid > div:last-child .relative > .sticker { display: none; }
+
+            #home h1 { font-size: clamp(2.1rem, 10vw, 3.2rem) !important; line-height: 0.94; word-break: break-word; padding-right: 95px; position: relative; z-index: 4; }
+            #home h1 span { display: block; }
+
+            .sticker { font-size: 0.5rem; padding: 0.22rem 0.45rem; }
+            #home .mono.text-\[10px\] { font-size: 0.55rem !important; padding: 0.32rem 0.5rem !important; letter-spacing: 0.08em; }
+            .typewriter-wrap { gap: 2px; }
+            .typewriter-text { font-size: 0.85rem; }
+            #home .btn-primary, #home .btn-outline { width: 100%; justify-content: center; padding: 0.85rem 1rem; font-size: 0.68rem; }
+            .marquee { padding: 0.7rem 0; margin-top: 2rem !important; margin-bottom: 2rem !important; }
+            .marquee-track { gap: 1.5rem; animation-duration: 22s; }
+            .marquee-item { font-size: 1rem; }
+            .editorial-card { padding: 1.15rem !important; }
+            .track-card { padding: 1.15rem; }
+            .track-title { font-size: 1rem; }
+            .track-desc { font-size: 0.74rem; }
+            .track-bars { height: 10px; }
+            .track-btn { font-size: 0.62rem; padding: 0.5rem 0.75rem; }
+            .track-btn::before { font-size: 0.6rem; }
+            .album-title { font-size: 1rem; }
+            .album-code { font-size: 0.58rem; }
+            .album-meta { padding: 0.85rem 1rem; }
+            .timeline-item { padding-left: 1.4rem; padding-bottom: 1.5rem; }
+            .timeline-item::before { width: 7px; height: 7px; left: -4px; }
+            .modal-box { padding: 1.5rem; max-height: 88vh; }
+            .modal-box h4 { font-size: 1.4rem; }
+            .modal-close { width: 32px; height: 32px; top: 0.75rem; right: 0.75rem; }
+            .subproject-grid { column-count: 2 !important; column-gap: 0.75rem !important; }
+            .lightbox { padding: 1rem; }
+            .lightbox-content img { max-height: 70vh; }
+            .lightbox-close { top: 1rem; right: 1rem; width: 38px; height: 38px; }
+            #backToTop { width: 42px; height: 42px; bottom: 5.5rem; right: 1rem; font-size: 1rem; }
+            section h2 { font-size: clamp(1.9rem, 8vw, 2.6rem) !important; }
+            .award-ribbon { font-size: 0.5rem; padding: 0.35rem 0.55rem 0.35rem 0.7rem; letter-spacing: 0.06em; }
+        }
+
+        @media (max-width: 480px) {
+            #home h1 { font-size: clamp(1.85rem, 10vw, 2.7rem) !important; padding-right: 88px; }
+            .cat-mascot { width: 68px !important; }
+            .marquee-item { font-size: 0.9rem; }
+            .editorial-card { padding: 1rem !important; }
+            .subproject-grid { column-count: 1 !important; }
+        }
+    </style>
+</head>
+<body class="antialiased relative">
+
+    <div id="scroll-progress"></div>
+    <div class="grain"></div>
+    <div class="scanlines"></div>
+
+    <div id="canvas-container" aria-hidden="true" class="fixed inset-0 z-0 pointer-events-none"></div>
+    <div id="bg-scrim" aria-hidden="true" class="fixed inset-0 z-[1] pointer-events-none"></div>
+
+    <div class="cursor-ring" id="cursorRing"></div>
+    <div class="cursor-dot" id="cursorDot"></div>
+
+    <div class="cat-egg" id="catEgg">
+        <p>¡MEOW.EXE ACTIVADO!</p>
+        <p>Dijiste la palabra clave. Mi leoncito de Cannes está orgulloso de ti.</p>
+    </div>
+
+    <!-- MENSAJE AL CERRAR LA PESTAÑA -->
+    <div class="exit-toast" id="exitToast" role="status" aria-live="polite">
+        <div class="exit-toast-icon">🐈</div>
+        <div class="exit-toast-text">
+            <strong>Por si te olvidas</strong> — mejor guarda mi portafolio ahora.
+        </div>
+        <button class="exit-toast-close" id="exitToastClose" aria-label="Cerrar mensaje">✕</button>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="mobile-menu-close" id="mobileMenuClose" aria-label="Cerrar">✕</button>
+        <a href="#home" data-i18n="nav.home">Inicio</a>
+        <a href="#about" data-i18n="nav.about">Sobre mí</a>
+        <a href="#skills" data-i18n="nav.skills">Habilidades</a>
+        <a href="#projects" data-i18n="nav.projects">Proyectos</a>
+        <a href="#experience" data-i18n="nav.experience">Experiencia</a>
+        <a href="#contact" data-i18n="nav.contact">Contacto</a>
+    </div>
+
+    <div class="relative z-10">
+        <header class="fixed inset-x-0 top-0 z-50 player-nav">
+            <div class="container mx-auto px-6 py-3 flex items-center justify-between gap-6">
+                <div class="flex items-center gap-3">
+                    <div class="rec-dot"></div>
+                    <a class="display text-lg tracking-tight" href="#home">
+                        RUT<span style="color: var(--violet-neon);">.</span>PALOMINO<span style="color: var(--violet-neon);">®</span>
+                    </a>
+                </div>
+
+                <nav class="hidden xl:flex items-center gap-5">
+                    <a href="#home" class="nav-link" data-num="01" data-i18n="nav.home">Inicio</a>
+                    <a href="#about" class="nav-link" data-num="02" data-i18n="nav.about">Sobre mí</a>
+                    <a href="#skills" class="nav-link" data-num="03" data-i18n="nav.skills">Habilidades</a>
+                    <a href="#projects" class="nav-link" data-num="04" data-i18n="nav.projects">Proyectos</a>
+                    <a href="#experience" class="nav-link" data-num="05" data-i18n="nav.experience">Experiencia</a>
+                    <a href="#contact" class="nav-link" data-num="06" data-i18n="nav.contact">Contacto</a>
+                </nav>
+
+                <div class="hidden lg:flex items-center gap-3">
+                    <div class="flex items-center border" style="border-color: rgba(176,38,255,0.3);">
+                        <button class="lang-btn active" data-lang="es">ES</button>
+                        <button class="lang-btn" data-lang="en">EN</button>
+                    </div>
+                </div>
+
+                <button class="hamburger" id="hamburgerBtn" aria-label="Abrir menú">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                </button>
+            </div>
+        </header>
+
+        <main>
+            
+            <section id="home" class="relative min-h-screen flex items-center overflow-hidden pt-24 pb-16">
+                <div class="container mx-auto px-6">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                        <div class="lg:col-span-8 relative">
+                            <p class="mono text-[10px] mb-6" style="color: var(--violet-neon); letter-spacing: 0.3em;">
+                                PORTAFOLIO CREATIVO · EST. 2026 · LIMA, PERÚ
+                            </p>
+                            
+                            <h1 class="display text-[clamp(2.2rem,11vw,9rem)] leading-[0.88]">
+                                <span class="block">RUT ORIANA</span>
+                                <span class="block" style="color: var(--violet-neon);">PALOMINO<span style="font-size: 0.4em; vertical-align: super;">®</span></span>
+                            </h1>
+
+                            <div class="mt-8 mb-8 typewriter-wrap">
+                                <span id="typewriter" class="typewriter-text"></span>
+                                <span class="typewriter-cursor"></span>
+                            </div>
+
+                            <p class="max-w-xl text-base leading-relaxed mb-10" style="color: var(--text-muted);" data-i18n="hero.tagline">
+                                Una creativa que convierte ideas en identidades, imágenes y campañas que no pasan desapercibidas.
+                            </p>
+
+                            <div class="flex flex-wrap gap-3 mb-10">
+                                <span class="mono text-[10px] px-3 py-1.5" style="border: 1px solid rgba(176,38,255,0.35); color: var(--lavender);">DIRECCIÓN DE ARTE</span>
+                                <span class="mono text-[10px] px-3 py-1.5" style="border: 1px solid rgba(176,38,255,0.35); color: var(--lavender);">BRANDING</span>
+                                <span class="mono text-[10px] px-3 py-1.5" style="border: 1px solid rgba(176,38,255,0.35); color: var(--lavender);">CAMPAÑAS</span>
+                            </div>
+
+                            <div class="flex flex-wrap gap-4">
+                                <a href="#projects" class="btn-primary" data-i18n="hero.cta1">PARA VER MI CHAMBA SIN TANTO FLORO</a>
+                                <a href="#about" class="btn-outline" data-i18n="hero.cta2">Conoce a la creativa</a>
+                            </div>
+                        </div>
+
+                        <div class="lg:col-span-4 relative flex justify-center lg:justify-end">
+                            <div class="relative">
+                                <span class="sticker" style="top: -1rem; left: -2rem;">v1.0 / beta</span>
+                                <span class="sticker sticker-2" style="bottom: 2rem; right: -1rem;">meow.exe</span>
+                                
+                                <svg id="catMascot" class="cat-mascot" width="280" height="340" viewBox="0 0 280 340" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M220 260 Q270 240 250 190 Q235 155 260 130" stroke="#b026ff" stroke-width="6" fill="none" stroke-linecap="round"/>
+                                    <ellipse cx="140" cy="240" rx="80" ry="70" fill="#1a0a2e" stroke="#b026ff" stroke-width="3"/>
+                                    <ellipse cx="140" cy="140" rx="85" ry="75" fill="#1a0a2e" stroke="#b026ff" stroke-width="3"/>
+                                    <path d="M70 95 L60 40 L110 75 Z" fill="#1a0a2e" stroke="#b026ff" stroke-width="3" stroke-linejoin="round"/>
+                                    <path d="M210 95 L220 40 L170 75 Z" fill="#1a0a2e" stroke="#b026ff" stroke-width="3" stroke-linejoin="round"/>
+                                    <path d="M75 90 L70 55 L100 78 Z" fill="#b026ff" opacity="0.4"/>
+                                    <path d="M205 90 L210 55 L180 78 Z" fill="#b026ff" opacity="0.4"/>
+                                    <g class="cat-blink">
+                                        <ellipse cx="112" cy="140" rx="12" ry="16" fill="#b026ff"/>
+                                        <ellipse cx="168" cy="140" rx="12" ry="16" fill="#b026ff"/>
+                                        <ellipse cx="112" cy="140" rx="4" ry="12" fill="#000"/>
+                                        <ellipse cx="168" cy="140" rx="4" ry="12" fill="#000"/>
+                                        <circle cx="115" cy="134" r="3" fill="#fff"/>
+                                        <circle cx="171" cy="134" r="3" fill="#fff"/>
+                                    </g>
+                                    <path d="M135 165 L145 165 L140 172 Z" fill="#b026ff"/>
+                                    <path d="M140 172 Q135 182 128 178 M140 172 Q145 182 152 178" stroke="#b026ff" stroke-width="2" fill="none" stroke-linecap="round"/>
+                                    <line x1="80" y1="160" x2="60" y2="155" stroke="#b026ff" stroke-width="1.5" opacity="0.6"/>
+                                    <line x1="80" y1="168" x2="58" y2="170" stroke="#b026ff" stroke-width="1.5" opacity="0.6"/>
+                                    <line x1="200" y1="160" x2="220" y2="155" stroke="#b026ff" stroke-width="1.5" opacity="0.6"/>
+                                    <line x1="200" y1="168" x2="222" y2="170" stroke="#b026ff" stroke-width="1.5" opacity="0.6"/>
+                                    <path d="M90 205 Q140 225 190 205" stroke="#b026ff" stroke-width="4" fill="none" stroke-linecap="round"/>
+                                    <circle cx="140" cy="222" r="10" fill="#b026ff"/>
+                                    <text x="140" y="227" text-anchor="middle" font-family="monospace" font-size="10" font-weight="bold" fill="#000">R</text>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="scroll-hint">
+                    <span class="scroll-hint-text">DESLIZA PARA VER MÁS</span>
+                    <span class="scroll-hint-arrow"></span>
+                </div>
+            </section>
+
+            <div class="marquee my-16">
+                <div class="marquee-track">
+                    <span class="marquee-item">DISEÑO CON OTRA <span>FRECUENCIA</span></span>
+                    <span class="marquee-item">✦</span>
+                    <span class="marquee-item">DIRECCIÓN DE ARTE</span>
+                    <span class="marquee-item">✦</span>
+                    <span class="marquee-item">BRANDING Y <span>CAMPAÑAS</span></span>
+                    <span class="marquee-item">✦</span>
+                    <span class="marquee-item">UTP · LIMA, PERÚ</span>
+                    <span class="marquee-item">✦</span>
+                    <span class="marquee-item">DISEÑO CON OTRA <span>FRECUENCIA</span></span>
+                    <span class="marquee-item">✦</span>
+                    <span class="marquee-item">DIRECCIÓN DE ARTE</span>
+                    <span class="marquee-item">✦</span>
+                    <span class="marquee-item">BRANDING Y <span>CAMPAÑAS</span></span>
+                    <span class="marquee-item">✦</span>
+                    <span class="marquee-item">UTP · LIMA, PERÚ</span>
+                    <span class="marquee-item">✦</span>
+                </div>
+            </div>
+
+            <section id="about" class="container mx-auto px-6 max-w-6xl mb-32">
+                <div class="mb-12 reveal">
+                    <p class="mono text-[10px] mb-3" style="color: var(--violet-neon); letter-spacing: 0.3em;">02 / SOBRE MÍ</p>
+                    <h2 class="display text-[clamp(2.2rem,6vw,4.5rem)] leading-[0.9]">
+                        LA PERSONA DETRÁS<br>
+                        <span style="color: var(--violet-neon);">DE LAS IDEAS</span>
+                    </h2>
+                </div>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+                    <div class="lg:col-span-4 reveal reveal-delay-1">
+                        <div class="relative group">
+                            <span class="washi">R.O.P · 2026</span>
+                            <div class="profile-swap aspect-[3/4] overflow-hidden" style="background: #1a0a2e; border: 1px solid rgba(176,38,255,0.25);">
+                                <img 
+                                    src="https://res.cloudinary.com/mtjqlf2y/image/upload/w_900,h_1200,c_fill,q_auto,f_auto/v1791537559/oriana-ilustracion.png" 
+                                    alt="Oriana Palomino — Ilustración" 
+                                    class="profile-img profile-img-base"
+                                >
+                                <img 
+                                    src="https://res.cloudinary.com/mtjqlf2y/image/upload/w_900,h_1200,c_fill,q_auto,f_auto/v1791537369/oriana-foto.png" 
+                                    alt="Oriana Palomino — Foto" 
+                                    class="profile-img profile-img-hover"
+                                >
+                                <div class="profile-hint">
+                                    <span class="mono">VER FOTO REAL</span>
+                                </div>
+                            </div>
+                            <span class="sticker" style="top: 1rem; left: -1rem;">#artist</span>
+                        </div>
+                        
+                        <div class="editorial-card p-4 flex items-center gap-4 mt-4">
+                            <div class="w-14 h-14 flex-shrink-0 overflow-hidden" style="background: #1a0a2e; border: 1px solid rgba(176,38,255,0.25);">
+                                <img 
+                                    src="https://res.cloudinary.com/mtjqlf2y/image/upload/w_200,h_200,c_fill,q_auto,f_auto/v1791537683/IMG-20260330-WA0086.jpg.jpg" 
+                                    alt="Mi sobrino" 
+                                    class="w-full h-full object-cover"
+                                >
+                            </div>
+                            <p class="text-[11px] italic" style="color: var(--text-muted);">Mi sobrino, mi leoncito de Cannes, mi copiloto creativo. Él ya vive como si hubiera ganado el León.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="lg:col-span-8 flex flex-col gap-8 reveal reveal-delay-2">
+                        <div class="text-sm leading-relaxed space-y-4" style="color: var(--text-muted);">
+                            <p>Estudio Diseño Digital Publicitario en la Universidad Tecnológica del Perú y estoy dentro del décimo superior de mi carrera. He trabajado en dirección de arte y campañas, participando en procesos creativos de agencia y festivales para jóvenes creativos como FIAP, APAP, Young Ones y El Ojo de Iberoamérica.</p>
+                            <p>Me gusta ilustrar, escuchar música y fijarme en los detalles: la portada de un disco, la luz de una tarde o un empaque que resuelve algo de una forma inesperada. Son cosas que disfruto por sí mismas, pero que también terminan influyendo en cómo pienso.</p>
+                            <p>Soy curiosa por naturaleza y me gusta explorar nuevas herramientas y formatos, desde la creatividad hasta la inteligencia artificial.</p>
+                        </div>
+
+                        <div class="editorial-card p-8 relative overflow-hidden">
+                            <span class="absolute top-2 right-6 display text-[8rem] leading-none" style="color: rgba(176,38,255,0.12);">"</span>
+                            <p class="mono text-[10px] mb-4" style="color: var(--violet-neon); letter-spacing: 0.2em;">FILOSOFÍA CREATIVA</p>
+                            <p class="display text-2xl md:text-3xl leading-tight w-[88%] relative z-10">
+                                Creo que una buena idea puede empezar en cualquier parte. En una conversación, una canción o un detalle que casi nadie nota. Me gusta encontrar esas conexiones.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="skills" class="container mx-auto px-6 max-w-6xl mb-32">
+                <div class="mb-12 reveal">
+                    <p class="mono text-[10px] mb-3" style="color: var(--violet-neon); letter-spacing: 0.3em;">03 / HABILIDADES</p>
+                    <h2 class="display text-[clamp(2.2rem,6vw,4.5rem)] leading-[0.9]">
+                        LISTA DE PISTAS<br>
+                        <span style="color: var(--violet-neon);">Y TALENTOS</span>
+                    </h2>
+                    <p class="mt-4 max-w-lg text-sm" style="color: var(--text-muted);">Una mezcla de pensamiento creativo, oficio de diseño, fluidez técnica y rigor analítico. Cada disciplina es una pista del mismo álbum.</p>
+                </div>
+
+                <div class="flex flex-wrap gap-2 mb-10 relative z-20 reveal" id="skillsTabs">
+                    <button class="track-btn tab-active" data-tab="creatividad" data-track="01">CREATIVIDAD</button>
+                    <button class="track-btn" data-tab="fotografia" data-track="02">FOTOGRAFÍA Y PRODUCCIÓN</button>
+                    <button class="track-btn" data-tab="diseno" data-track="03">DISEÑO Y SOFTWARE</button>
+                    <button class="track-btn" data-tab="analitica" data-track="04">ANALÍTICA</button>
+                    <button class="track-btn" data-tab="ia" data-track="05">IA</button>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="skillsGrid"></div>
+            </section>
+
+            <section id="projects" class="container mx-auto px-6 max-w-6xl mb-32">
+                <div class="mb-12 reveal">
+                    <p class="mono text-[10px] mb-3" style="color: var(--violet-neon); letter-spacing: 0.3em;">04 / PROYECTOS</p>
+                    <h2 class="display text-[clamp(2.2rem,6vw,4.5rem)] leading-[0.9]">
+                        LANZAMIENTOS<br>
+                        <span style="color: var(--violet-neon);">DESTACADOS</span>
+                    </h2>
+                    <p class="mt-4 max-w-lg text-sm" style="color: var(--text-muted);">Cada proyecto es una pieza con su propia dirección de arte. Haz clic para ver la historia completa.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="projectsGrid"></div>
+            </section>
+
+            <section id="experience" class="container mx-auto px-6 max-w-6xl mb-32">
+                <div class="mb-12 reveal">
+                    <p class="mono text-[10px] mb-3" style="color: var(--violet-neon); letter-spacing: 0.3em;">05 / TRAYECTORIA</p>
+                    <h2 class="display text-[clamp(2.2rem,6vw,4.5rem)] leading-[0.9]">
+                        LÍNEA DE<br>
+                        <span style="color: var(--violet-neon);">TIEMPO</span>
+                    </h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div class="reveal">
+                        <h3 class="mono text-[10px] mb-6" style="color: var(--violet-neon); letter-spacing: 0.2em;">EXPERIENCIA Y FESTIVALES</h3>
+                        <div class="timeline-item">
+                            <p class="timeline-year">2026 · ACTUALIDAD</p>
+                            <h4 class="display text-xl mb-1">TRAINEE</h4>
+                            <p class="text-xs mb-3" style="color: var(--violet-neon);">LikeAgencia</p>
+                            <ul class="text-sm space-y-1.5 list-none" style="color: var(--text-muted);">
+                                <li>→ Desarrollo de piezas y propuestas visuales.</li>
+                                <li>→ Trabajo colaborativo con equipos creativos.</li>
+                            </ul>
+                        </div>
+                        <div class="timeline-item">
+                            <p class="timeline-year">2026</p>
+                            <h4 class="display text-xl mb-1">FIAP 2026 · DUO VPN</h4>
+                            <p class="text-xs mb-3" style="color: var(--violet-neon);">Festival · Categoría Estudiantes</p>
+                            <ul class="text-sm space-y-1.5 list-none" style="color: var(--text-muted);">
+                                <li>→ Shortlist Estudiantes.</li>
+                                <li>→ Desarrollo de concepto creativo y board.</li>
+                            </ul>
+                        </div>
+                        <div class="timeline-item">
+                            <p class="timeline-year">2026</p>
+                            <h4 class="display text-xl mb-1">APAP 2026 · A TU REVÉS</h4>
+                            <p class="text-xs mb-3" style="color: var(--violet-neon);">Festival · Jóvenes Talentos</p>
+                            <ul class="text-sm space-y-1.5 list-none" style="color: var(--text-muted);">
+                                <li>→ Shortlist Jóvenes Talentos APAP.</li>
+                                <li>→ Conceptualización y ejecución visual.</li>
+                            </ul>
+                        </div>
+                        <div class="timeline-item">
+                            <p class="timeline-year">2026</p>
+                            <h4 class="display text-xl mb-1">RED WEEKS IDEAS · REDHOOK ADSCHOOL</h4>
+                            <p class="text-xs mb-3" style="color: var(--violet-neon);">Programa de ideas creativas</p>
+                            <ul class="text-sm space-y-1.5 list-none" style="color: var(--text-muted);">
+                                <li>→ Revisión y fortalecimiento de ideas creativas.</li>
+                                <li>→ Presentación ante directores creativos.</li>
+                            </ul>
+                        </div>
+                        <div class="timeline-item">
+                            <p class="timeline-year">AGOSTO 2025</p>
+                            <h4 class="display text-xl mb-1">PITCH WEEK · INSIDE ADSCHOOL</h4>
+                            <p class="text-xs mb-3" style="color: var(--violet-neon);">Programa intensivo</p>
+                            <ul class="text-sm space-y-1.5 list-none" style="color: var(--text-muted);">
+                                <li>→ Desarrollo de conceptos con dupla creativa.</li>
+                                <li>→ Metodologías propias de agencia.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="reveal reveal-delay-1">
+                        <h3 class="mono text-[10px] mb-6" style="color: var(--violet-neon); letter-spacing: 0.2em;">EDUCACIÓN</h3>
+                        <div class="timeline-item">
+                            <p class="timeline-year">2022 — 2026</p>
+                            <h4 class="display text-xl mb-1">DISEÑO DIGITAL PUBLICITARIO</h4>
+                            <p class="text-xs mb-3" style="color: var(--violet-neon);">Universidad Tecnológica del Perú (UTP)</p>
+                            <ul class="text-sm space-y-1.5 list-none" style="color: var(--text-muted);">
+                                <li>→ 10.º superior de la carrera.</li>
+                                <li>→ Enfoque en dirección de arte y campañas.</li>
+                            </ul>
+                        </div>
+
+                        <h3 class="mono text-[10px] mt-10 mb-6" style="color: var(--violet-neon); letter-spacing: 0.2em;">OBJETIVOS</h3>
+                        <div class="timeline-item">
+                            <p class="timeline-year">LARGO PLAZO</p>
+                            <p class="text-sm" style="color: var(--text-muted);">Ser Directora Creativa liderando campañas en distintos países.</p>
+                        </div>
+                        <div class="timeline-item" style="padding-bottom: 0;">
+                            <p class="timeline-year">CORTO PLAZO</p>
+                            <p class="text-sm" style="color: var(--text-muted);">Aportar valor en una agencia creativa consolidando mis habilidades en dirección de arte y estrategia.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contact" class="container mx-auto px-6 max-w-4xl mb-24 relative">
+                <div class="text-center mb-12 reveal">
+                    <p class="mono text-[10px] mb-3" style="color: var(--violet-neon); letter-spacing: 0.3em;">06 / CONTACTO</p>
+                    <h2 class="display text-[clamp(2.5rem,8vw,6rem)] leading-[0.88]">
+                        HABLEMOS<br>
+                        <span style="color: var(--violet-neon);">DE IDEAS</span>
+                    </h2>
+                </div>
+
+                <div class="editorial-card p-10 text-center relative reveal reveal-delay-1">
+                    <span class="sticker" style="top: -0.6rem; left: 2rem;">sin spam, prometido</span>
+                    
+                    <p class="text-base mb-8" style="color: var(--text-muted);">
+                        ¿Tienes un proyecto en mente, una campaña por desarrollar o simplemente quieres saludar?
+                    </p>
+                    <a href="mailto:rut.palomino@hotmail.com" class="display text-2xl md:text-4xl block mb-10 hover:opacity-80 transition" style="color: var(--violet-neon); word-break: break-word;">
+                        rut.palomino@hotmail.com
+                    </a>
+                    <div class="flex flex-wrap justify-center gap-3">
+                        <a href="mailto:rut.palomino@hotmail.com" class="btn-primary">Enviar correo</a>
+                        <a href="https://linkedin.com/in/o-pal/" target="_blank" rel="noopener" class="btn-outline">LinkedIn</a>
+                        <a href="https://behance.net/rutorianapalomino/projects" target="_blank" rel="noopener" class="btn-outline">Behance</a>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <footer class="border-t py-8 text-center relative z-20" style="border-color: rgba(176,38,255,0.15);">
+            <p class="mono text-[10px]" style="color: var(--text-muted); letter-spacing: 0.15em;">
+                © 2026 RUT ORIANA PALOMINO · DISEÑO CON OTRA FRECUENCIA · <span style="color: var(--violet-neon);">MEOW.EXE v1.0</span>
+            </p>
+        </footer>
+    </div>
+
+    <button id="backToTop" aria-label="Volver arriba">↑</button>
+
+    <div class="mobile-player">
+        <div class="player-inner">
+            <button class="player-btn" data-goto="home" aria-label="Inicio">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+            </button>
+            <div class="player-info">
+                <div class="player-title">REPRODUCIENDO · PORTAFOLIO</div>
+                <div class="player-sub">RUT ORIANA PALOMINO · 2026</div>
+            </div>
+            <button class="player-btn player-play" data-goto="projects" aria-label="Ir a proyectos">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </button>
+            <button class="player-btn" data-goto="contact" aria-label="Ir a contacto">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M6 18l8.5-6L6 6v12zM16 6v12h2V6h-2z"/></svg>
+            </button>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="projectModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="modal-box">
+            <button class="modal-close" id="modalClose" aria-label="Cerrar">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+            </button>
+            <p class="mono text-[10px] mb-3" style="color: var(--violet-neon); letter-spacing: 0.2em;" id="modalCategory"></p>
+            <h4 id="modalTitle" class="display text-3xl mb-4"></h4>
+            <p id="modalDesc" class="text-sm leading-relaxed mb-6" style="color: var(--text-muted);"></p>
+            <div id="modalExtra"></div>
+            <div class="flex flex-wrap gap-2" id="modalTags"></div>
+        </div>
+    </div>
+
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightboxClose" aria-label="Cerrar">✕</button>
+        <div class="lightbox-content">
+            <img id="lightboxImg" src="" alt="">
+            <p id="lightboxCaption" class="mono text-[11px] mt-4 text-center" style="color: var(--violet-neon); letter-spacing: 0.15em;"></p>
+        </div>
+    </div>
+
+    <script type="module" src="app.js"></script>
+</body>
+</html>
