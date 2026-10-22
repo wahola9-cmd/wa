@@ -181,7 +181,7 @@ const PROJECTS = [
                 pieces: [ 
                     { label: 'MOTIVO 01', image: 'https://res.cloudinary.com/mtjqlf2y/image/upload/v1792653713/PRINTS_PROACTIVIDADES_1__page-0001.jpg', embed: null, format: 'post', aspect: BOARD_ASPECT },
                     { label: 'MOTIVO 02', image: 'https://res.cloudinary.com/mtjqlf2y/image/upload/v1792653717/PRINTS_PROACTIVIDADES_1__page-0002.jpg', embed: null, format: 'post', aspect: BOARD_ASPECT },
-                    { label: 'MOTIVO 03', image: 'https://res.cloudinary.com/mtjqlf2y/image/upload/v1792653714/PRINTS_PROACTIVIDADES_1__page-0003.jpg', embed: null, format: 'post', aspect: BOARD_ASPECT },
+                    { label: 'MOTIVO 03', image: 'https://res.cloudinary.com/mtjqlf2y/image/upload/v1792653714/PRINTS_PROACTIVIDADES_1__page-0003.jpg', embed: null, format: 'post', aspect: BOARD_ASPECT }
 ]
         }
     ]
