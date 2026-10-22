@@ -190,7 +190,7 @@ const PROJECTS = [
         tag: 'PROYECTO PERSONAL',
         tags: ['Ilustración', 'Archivo', 'Personal'],
         accent: '#d946ef',
-        logo: 'https://res.cloudinary.com/mtjqlf2y/image/upload/w_600,q_auto,f_auto/v1791537559/oriana-ilustracion.png',
+        logo: 'https://res.cloudinary.com/mtjqlf2y/image/upload/v1792655596/Gemini_Generated_Image_c0egxoc0egxoc0eg.jpg',
         award: null,
         items: [
             { label: 'ILUSTRACIÓN 01', image: 'https://res.cloudinary.com/mtjqlf2y/image/upload/v1791546664/WhatsApp_Image_2026-10-09_at_6.45.53_AM.jpg' },
