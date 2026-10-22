@@ -163,7 +163,7 @@ const PROJECTS = [
         ]
     },
     {
-        type: 'folder',
+        type: 'single',
         title: 'PROACTIVIDADES',
         code: 'TRK-005 / ARCHIVO BONUS',
         category: 'Proactividades',
@@ -174,7 +174,7 @@ const PROJECTS = [
         logo: 'https://res.cloudinary.com/mtjqlf2y/image/upload/w_600,q_auto,f_auto/v1792017735/Gemini_Generated_Image_oop5o9oop5o9oop5.jpg',
         image: null,
         award: null,
-        accounts: [
+        pieces : [
             {
                 name: 'PROACTIVIDAD 01 · #HazTuChequeoDeMama',
                 subtitle: 'Prints inspirados en las chuspas monedero y la costumbre de guardar el dinero en el pecho.',
