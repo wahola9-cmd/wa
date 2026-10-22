@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
 import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
-import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
+import { UnrealBloomPass } from 'three/addons/postprocesPROsing/UnrealBloomPass.js';
 import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
 import { AfterimagePass } from 'three/addons/postprocessing/AfterimagePass.js';
 import { ShaderPass } from 'three/addons/postprocessing/ShaderPass.js';
@@ -172,7 +172,7 @@ const PROJECTS = [
         tag: 'PROACTIVIDADES',
         tags: ['Prints', 'Proactividades', '2026'],
         accent: '#3b82f6',
-        logo: 'https://res.cloudinary.com/mtjqlf2y/image/upload/w_600,q_auto,f_auto/v1792017735/Gemini_Generated_Image_oop5o9oop5o9oop5.jpg',
+        logo: 'https://res.cloudinary.com/mtjqlf2y/image/upload/v1792655596/Gemini_Generated_Image_c0egxoc0egxoc0eg.jpg',
         image: null,
         award: null,
         pieces: [
@@ -190,7 +190,7 @@ const PROJECTS = [
         tag: 'PROYECTO PERSONAL',
         tags: ['Ilustración', 'Archivo', 'Personal'],
         accent: '#d946ef',
-        logo: 'https://res.cloudinary.com/mtjqlf2y/image/upload/v1792655596/Gemini_Generated_Image_c0egxoc0egxoc0eg.jpg',
+        logo: 'https://res.cloudinary.com/mtjqlf2y/image/upload/v1791537559/oriana-ilustracion.png',
         award: null,
         items: [
             { label: 'ILUSTRACIÓN 01', image: 'https://res.cloudinary.com/mtjqlf2y/image/upload/v1791546664/WhatsApp_Image_2026-10-09_at_6.45.53_AM.jpg' },
