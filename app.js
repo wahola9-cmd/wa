@@ -85,9 +85,46 @@ const PROJECTS = [
         ]
     },
     {
-        type: 'folder',
+        type: 'single',
+        title: 'DISNEY',
+        code: 'TRK-002 / CLIO ENTERTAINMENT 2026',
+        category: 'Participación · Disney',
+        desc: 'Participación en Clio Entertainment 2026 con StorIA Waves, una propuesta para Disney que convierte sus historias más icónicas en experiencias de radio inmersivas para comunidades rurales sin acceso a pantallas. Cuentos adaptados con IA y narrados en idiomas locales.',
+        tag: 'OJO IBEROAMÉRICA',
+        tags: ['Disney', 'StorIA Waves', '2026'],
+        accent: '#3b82f6',
+        logo: 'https://res.cloudinary.com/mtjqlf2y/image/upload/w_600,q_auto,f_auto/v1792017735/Gemini_Generated_Image_oop5o9oop5o9oop5.jpg',
+        image: null,
+        award: 'SHORTLIST · CLIO ENTERTAINMENT',
+        awardType: 'pink',
+
+        pieces: [
+            { label: 'BOARD DE IDEA', image: 'https://res.cloudinary.com/mtjqlf2y/image/upload/v1792017410/StorIA_Waves_board.png', embed: null, format: 'post', aspect: BOARD_ASPECT },
+            { label: 'VIDEOCASE', image: null, embed: 'https://player.vimeo.com/video/1236012512', format: 'video', aspect: '16/9' }
+        ]
+    },
+    {
+        type: 'single',
+        title: 'PURRP HERTS',
+        code: 'TRK-003 / YOUNG ONES 2026',
+        category: 'Idea creativa · Whiskas',
+        desc: 'Desarrollo de la idea creativa y ejecución visual de las piezas para el brief de Whiskas en Young Ones 2026.',
+        tag: 'YOUNG ONES',
+        tags: ['Whiskas', 'Young Ones', 'Board'],
+        accent: '#e91e63',
+        logo: 'https://res.cloudinary.com/mtjqlf2y/image/upload/w_600,q_auto,f_auto/v1791545574/4.png',
+        image: null,
+        award: 'SHORTLIST · ESTUDIANTES',
+        awardType: 'pink',
+        pieces: [
+            { label: 'BOARD DE IDEA', image: 'https://res.cloudinary.com/mtjqlf2y/image/upload/v1792017421/DUO_VPN.png', embed: null, format: 'post', aspect: BOARD_ASPECT },
+            { label: 'VIDEOCASE', image: null, embed: 'https://player.vimeo.com/video/1236022699', format: 'video', aspect: '16/9' }
+        ]
+    },
+    {
+        type: 'single',
         title: 'LIKEAGENCIA',
-        code: 'CARPETA-002 / TRAINEE 2026',
+        code: 'TRK-004 / TRAINEE 2026',
         category: 'Agencia · 2026',
         desc: 'Mi paso como trainee por LikeAgencia. Aquí están las tres cuentas que manejé y una selección de piezas de social media por cada una, presentadas dentro de un mockup de Instagram para que se vean tal como salieron al aire.',
         tag: 'DISEÑO SOCIAL MEDIA',
@@ -127,61 +164,30 @@ const PROJECTS = [
     },
     {
         type: 'single',
-        title: 'DUO VPN',
-        code: 'TRK-003 / FIAP 2026',
-        category: 'Campaña publicitaria · Duolingo',
-        desc: 'Desarrollo del concepto creativo y ejecución visual para Duo VPN, proyecto de Duolingo, dentro del certamen FIAP 2026. La idea nació de un insight sobre privacidad digital y se trabajó desde el concepto hasta el arte final.',
-        tag: 'CAMPAÑA FIAP',
-        tags: ['Duolingo', 'FIAP 2026', 'Concepto'],
-        accent: '#58cc02',
-        logo: 'https://res.cloudinary.com/mtjqlf2y/image/upload/w_600,q_auto,f_auto/v1791545573/3.png',
-        image: null,
-        award: 'SHORTLIST · ESTUDIANTES',
-        awardType: 'pink',
-        pieces: [
-            { label: 'BOARD DE IDEA', image: 'https://res.cloudinary.com/mtjqlf2y/image/upload/v1792017421/DUO_VPN.png', embed: null, format: 'post', aspect: BOARD_ASPECT },
-            { label: 'VIDEOCASE', image: null, embed: 'https://player.vimeo.com/video/1236022699', format: 'video', aspect: '16/9' }
-        ]
-    },
-    {
-        type: 'single',
-        title: 'PURRP HERTS',
-        code: 'TRK-004 / YOUNG ONES 2026',
-        category: 'Idea creativa · Whiskas',
-        desc: 'Idea creativa y diseño del board para Whiskas dentro del certamen Young Ones 2026. Ejercicio de conceptualización rápida con foco en el insight y la ejecución visual. Un guiño a mi leoncito de Cannes como mascota de la idea.',
-        tag: 'YOUNG ONES',
-        tags: ['Whiskas', 'Young Ones', 'Board'],
-        accent: '#e91e63',
-        logo: 'https://res.cloudinary.com/mtjqlf2y/image/upload/w_600,q_auto,f_auto/v1791545574/4.png',
-        image: null,
-        award: 'ROUND 2 · ONE SHOW',
-        awardType: 'pink',
-        pieces: [
-            { label: 'BOARD DE IDEA', image: 'https://res.cloudinary.com/mtjqlf2y/image/upload/v1792018863/Board_Inside.jpg', embed: null, format: 'post', aspect: BOARD_ASPECT },
-            { label: 'VIDEOCASE', image: null, embed: 'https://player.vimeo.com/video/1187214198', format: 'video', aspect: '16/9' }
-        ]
-    },
-    {
-        type: 'single',
-        title: 'DISNEY',
-        code: 'TRK-005 / OJO IBEROAMÉRICA 2025',
-        category: 'Participación · Disney',
-        desc: 'Participación en el certamen Ojo Iberoamérica 2025 con StorIA Waves, una propuesta para Disney que convierte sus historias más icónicas en experiencias de radio inmersivas para comunidades rurales sin acceso a pantallas. Cuentos adaptados con IA y narrados en idiomas locales.',
-        tag: 'OJO IBEROAMÉRICA',
-        tags: ['Disney', 'StorIA Waves', '2025'],
+        title: 'PROACTIVIDADES',
+        code: 'TRK-005 / ARCHIVO BONUS',
+        category: 'Proactividades',
+        desc: 'Desarrollo de proactividades junto a duplas, con participación en el proceso creativo y foco en la bajada visual de las ideas.',
+        tag: 'PROACTIVIDADES',
+        tags: ['Prints', 'Proactividades', '2026'],
         accent: '#3b82f6',
         logo: 'https://res.cloudinary.com/mtjqlf2y/image/upload/w_600,q_auto,f_auto/v1792017735/Gemini_Generated_Image_oop5o9oop5o9oop5.jpg',
         image: null,
         award: null,
-        pieces: [
-            { label: 'BOARD DE IDEA', image: 'https://res.cloudinary.com/mtjqlf2y/image/upload/v1792017410/StorIA_Waves_board.png', embed: null, format: 'post', aspect: BOARD_ASPECT },
-            { label: 'VIDEOCASE', image: null, embed: 'https://player.vimeo.com/video/1236012512', format: 'video', aspect: '16/9' }
-        ]
+        accounts: [
+            {
+                name: 'PROACTIVIDAD 01 · #HazTuChequeoDeMama',
+                subtitle: 'Prints inspirados en las chuspas monedero y la costumbre de guardar el dinero en el pecho.',
+                pieces: [ 
+                    { label: 'MOTIVO 01', image: 'https://res.cloudinary.com/mtjqlf2y/image/upload/v1792653713/PRINTS_PROACTIVIDADES_1__page-0001.jpg', embed: null, format: 'post', aspect: BOARD_ASPECT },
+                    { label: 'MOTIVO 02', image: 'https://res.cloudinary.com/mtjqlf2y/image/upload/v1792653717/PRINTS_PROACTIVIDADES_1__page-0002.jpg', embed: null, format: 'post', aspect: BOARD_ASPECT },
+                    { label: 'MOTIVO 03', image: 'https://res.cloudinary.com/mtjqlf2y/image/upload/v1792653714/PRINTS_PROACTIVIDADES_1__page-0003.jpg', embed: null, format: 'post', aspect: BOARD_ASPECT },
+        ]        
     },
     {
-        type: 'folder',
+        type: 'single',
         title: 'ILUSTRACIONES',
-        code: 'CARPETA-006 / ARCHIVO PERSONAL',
+        code: 'TRK-006 / ARCHIVO PERSONAL',
         category: 'Proyecto personal · 2022 — hoy',
         desc: 'Mi archivo personal de ilustración. Aquí guardo piezas sueltas, experimentos, bocetos y esas ideas que se me ocurren a las 2 a. m. y que igual termino subiendo.',
         tag: 'PROYECTO PERSONAL',
