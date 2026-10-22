@@ -97,7 +97,6 @@ const PROJECTS = [
         image: null,
         award: 'SHORTLIST · CLIO ENTERTAINMENT',
         awardType: 'pink',
-
         pieces: [
             { label: 'BOARD DE IDEA', image: 'https://res.cloudinary.com/mtjqlf2y/image/upload/v1792017410/StorIA_Waves_board.png', embed: null, format: 'post', aspect: BOARD_ASPECT },
             { label: 'VIDEOCASE', image: null, embed: 'https://player.vimeo.com/video/1236012512', format: 'video', aspect: '16/9' }
@@ -168,23 +167,21 @@ const PROJECTS = [
         code: 'TRK-005 / ARCHIVO BONUS',
         category: 'Proactividades',
         desc: 'Desarrollo de proactividades junto a duplas, con participación en el proceso creativo y foco en la bajada visual de las ideas.',
+        sectionTitle: 'PROACTIVIDAD 01 · #HazTuChequeoDeMama',
+        sectionSubtitle: 'Prints inspirados en las chuspas monedero y la costumbre de guardar el dinero en el pecho.',
         tag: 'PROACTIVIDADES',
         tags: ['Prints', 'Proactividades', '2026'],
         accent: '#3b82f6',
         logo: 'https://res.cloudinary.com/mtjqlf2y/image/upload/w_600,q_auto,f_auto/v1792017735/Gemini_Generated_Image_oop5o9oop5o9oop5.jpg',
         image: null,
         award: null,
-        pieces : [
-            {
-                pieces: [ 
-                    { label: 'MOTIVO 01', image: 'https://res.cloudinary.com/mtjqlf2y/image/upload/v1792653713/PRINTS_PROACTIVIDADES_1__page-0001.jpg', embed: null, format: 'post', aspect: BOARD_ASPECT },
-                    { label: 'MOTIVO 02', image: 'https://res.cloudinary.com/mtjqlf2y/image/upload/v1792653717/PRINTS_PROACTIVIDADES_1__page-0002.jpg', embed: null, format: 'post', aspect: BOARD_ASPECT },
-                    { label: 'MOTIVO 03', image: 'https://res.cloudinary.com/mtjqlf2y/image/upload/v1792653714/PRINTS_PROACTIVIDADES_1__page-0003.jpg', embed: null, format: 'post', aspect: BOARD_ASPECT }
-]
-        }
-    ]
-},          
-{           
+        pieces: [
+            { label: 'MOTIVO 01', image: 'https://res.cloudinary.com/mtjqlf2y/image/upload/v1792653713/PRINTS_PROACTIVIDADES_1__page-0001.jpg', embed: null, format: 'post', aspect: BOARD_ASPECT },
+            { label: 'MOTIVO 02', image: 'https://res.cloudinary.com/mtjqlf2y/image/upload/v1792653717/PRINTS_PROACTIVIDADES_1__page-0002.jpg', embed: null, format: 'post', aspect: BOARD_ASPECT },
+            { label: 'MOTIVO 03', image: 'https://res.cloudinary.com/mtjqlf2y/image/upload/v1792653714/PRINTS_PROACTIVIDADES_1__page-0003.jpg', embed: null, format: 'post', aspect: BOARD_ASPECT }
+        ]
+    },
+    {
         type: 'folder',
         title: 'ILUSTRACIONES',
         code: 'TRK-006 / ARCHIVO PERSONAL',
@@ -545,6 +542,18 @@ function openProjectModal(project) {
                 <span>${project.award}</span>
             `;
             wrap.appendChild(badge);
+        }
+
+        // Encabezado descriptivo opcional (ej. PROACTIVIDADES)
+        if (project.sectionTitle || project.sectionSubtitle) {
+            const header = document.createElement('div');
+            header.className = 'single-section-header';
+            header.style.cssText = 'margin: 0.5rem 0 1.5rem; padding-left: 0.9rem; border-left: 2px solid var(--violet-neon, #b026ff);';
+            header.innerHTML = `
+                ${project.sectionTitle ? `<h4 class="single-section-title" style="font-family: inherit; font-size: 1.05rem; letter-spacing: 0.04em; color: #fff; margin: 0 0 0.35rem; text-transform: uppercase;">${project.sectionTitle}</h4>` : ''}
+                ${project.sectionSubtitle ? `<p class="single-section-subtitle mono" style="font-size: 0.72rem; color: rgba(255, 255, 255, 0.65); letter-spacing: 0.06em; line-height: 1.5; margin: 0; max-width: 60ch;">${project.sectionSubtitle}</p>` : ''}
+            `;
+            wrap.appendChild(header);
         }
 
         project.pieces.forEach(piece => {
