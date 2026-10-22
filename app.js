@@ -105,7 +105,7 @@ const PROJECTS = [
     },
     {
         type: 'single',
-        title: 'PURRP HERTS',
+        title: 'PURRPHETS',
         code: 'TRK-003 / YOUNG ONES 2026',
         category: 'Idea creativa · Whiskas',
         desc: 'Desarrollo de la idea creativa y ejecución visual de las piezas para el brief de Whiskas en Young Ones 2026.',
@@ -114,11 +114,11 @@ const PROJECTS = [
         accent: '#e91e63',
         logo: 'https://res.cloudinary.com/mtjqlf2y/image/upload/w_600,q_auto,f_auto/v1791545574/4.png',
         image: null,
-        award: 'SHORTLIST · ESTUDIANTES',
+        award: 'LONGLIST · ESTUDIANTES',
         awardType: 'pink',
         pieces: [
-            { label: 'BOARD DE IDEA', image: 'https://res.cloudinary.com/mtjqlf2y/image/upload/v1792017421/DUO_VPN.png', embed: null, format: 'post', aspect: BOARD_ASPECT },
-            { label: 'VIDEOCASE', image: null, embed: 'https://player.vimeo.com/video/1236022699', format: 'video', aspect: '16/9' }
+            { label: 'BOARD DE IDEA', image: 'https://res.cloudinary.com/mtjqlf2y/image/upload/v1792018863/Board_Inside.jpg', embed: null, format: 'post', aspect: BOARD_ASPECT },
+            { label: 'VIDEOCASE', image: null, embed: 'https://player.vimeo.com/video/1187214198', format: 'video', aspect: '16/9' }
         ]
     },
     {
@@ -176,8 +176,6 @@ const PROJECTS = [
         award: null,
         pieces : [
             {
-                name: 'PROACTIVIDAD 01 · #HazTuChequeoDeMama',
-                subtitle: 'Prints inspirados en las chuspas monedero y la costumbre de guardar el dinero en el pecho.',
                 pieces: [ 
                     { label: 'MOTIVO 01', image: 'https://res.cloudinary.com/mtjqlf2y/image/upload/v1792653713/PRINTS_PROACTIVIDADES_1__page-0001.jpg', embed: null, format: 'post', aspect: BOARD_ASPECT },
                     { label: 'MOTIVO 02', image: 'https://res.cloudinary.com/mtjqlf2y/image/upload/v1792653717/PRINTS_PROACTIVIDADES_1__page-0002.jpg', embed: null, format: 'post', aspect: BOARD_ASPECT },
